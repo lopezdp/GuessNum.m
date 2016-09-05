@@ -40,7 +40,7 @@
 //getters
 -(void) getMenu
 {
-    printf("Please Guess a Number between 1 and 100.");
+    printf("Please Guess a Number between 1 and 100. \n");
     printf("Enter your guess: ");
 }
 
