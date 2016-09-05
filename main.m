@@ -18,9 +18,35 @@ int main(int argc, const char * argv[]) {
         int numGuess;
         
         [myGame setTRIES: TRIES];
+        [myGame setAttempts: 0];
+        [myGame setRandNum: arc4random_uniform(101)];
         [myGame getMenu];
         
-        scanf("%i", &numGuess);
+        while(scanf("%d", &numGuess) == 1)
+        {
+            for(int i = 0; i < TRIES; i++)
+            {
+                [myGame setAttempts: 1];
+                if(numGuess == [myGame getRandNum])
+                {
+                    printf("Congratulations! It took you %d attempts to guess the number correctly.", [myGame getAttempts]);
+                    printf("Do you want to play again? [y/n]");
+                }
+                else if(numGuess > [myGame getRandNum])
+                {
+                    printf("Sorry, that guess is too high!");
+                    printf("Guess again now: ");
+                    
+                }
+                else if(numGuess < [myGame getRandNum])
+                {
+                    printf("Sorry, that guess is too low!");
+                    printf("Guess again now: ");
+                }
+            }
+            
+            
+        }
         
         
         

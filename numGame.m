@@ -34,7 +34,7 @@
 
 -(void) setAttempts:(int)a
 {
-    attempts = a;
+    attempts += a;
 }
 
 //getters
