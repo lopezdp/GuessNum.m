@@ -40,7 +40,7 @@
 //getters
 -(void) getMenu
 {
-    printf("Please Guess a Number between 1 and 100. \n");
+    printf("\nPlease Guess a Number between 1 and 100. \n");
     printf("Enter your guess: ");
 }
 
@@ -62,6 +62,45 @@
 -(int) getAttempts
 {
     return attempts;
+}
+
+-(char) getReplay: (numGame *) myGame
+{
+    bool rTest = true;
+    char replay;
+    
+    do
+    {
+        printf("Do you want to play again? [y/n]: ");
+        scanf("\n%c", &replay);
+        printf("This is the value of 'replay': %c \n", replay); //debug statement
+        
+        //if statement will check validity of input and stay in loop if input not valid
+        if(replay == 'n' || replay == 'N' || replay == 'y' || replay == 'Y')
+        {
+            rTest = false;
+        }
+        else
+        {
+            rTest = true;
+            fpurge(stdin);//clear input buffer
+        }
+        
+    }while(rTest);
+    
+    if(replay == 'y' || replay == 'Y')
+    {
+        [myGame setAttempts: -([myGame getAttempts])]; //reset attempts to 0
+        
+        //printf("attempts should be 0 now: %d", [myGame getAttempts]); //debug statement
+        return replay; 
+    }
+    else if(replay == 'n' || replay == 'N')
+    {
+        return replay; //exit for loop
+    }
+    
+    return replay;
 }
 
 @end

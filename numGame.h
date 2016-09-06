@@ -30,4 +30,6 @@
 
 -(int) getAttempts;
 
+-(char) getReplay: (numGame *) myGame;
+
 @end
